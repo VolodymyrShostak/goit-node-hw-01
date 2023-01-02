@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -21,5 +20,8 @@
   "homepage": "https://github.com/VolodymyrShostak/goit-node-hw-01#readme",
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "yargs": "^17.6.2"
   }
 }

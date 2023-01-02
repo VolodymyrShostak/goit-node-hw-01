@@ -1,7 +1,9 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
-const contactsPath = path.join(__dirname, "contacts.json");
+const contactsPath = path.resolve("./db/contacts.json");
+
+
 
 function listContacts() {  
     fs.readFile(contactsPath, "utf-8", (err, data) => {
@@ -9,12 +11,15 @@ function listContacts() {
         console.table(JSON.parse(data));
     })
 };
+
 function addContact(name, email, phone) {
     fs.writeFile(contactsPath, JSON.stringify(contacts), (err) => {
         if (err) throw err;
         console.log("The file has been saved!");
     })
-};
+}
+  
+
 function getContactById(contactId) {
     fs.readFile(contactsPath, "utf-8", (err, data) => {
         if (err) throw err;
@@ -23,6 +28,7 @@ function getContactById(contactId) {
         console.table(contact);
     })
 };
+
 function removeContact(contactId) {
     fs.readFile(contactsPath, "utf-8", (err, data) => {
         if (err) throw err;
@@ -34,6 +40,7 @@ function removeContact(contactId) {
         })
     })
 };
+// export { listContacts, getContactById, removeContact, addContact };
 
 module.exports = {
     listContacts,
